@@ -20,6 +20,15 @@ void towerHanoi(int, string, string, string, int&);
  * Output:
  * An integer to signal to the OS the exit code.
 *******************************************************************************/
+void towerHanoi(int totalDisks, string start, string temp, string end, int& movesAmount)
+{
+    if (totalDisks == 0) return;
+    
+    towerHanoi(totalDisks - 1, start, end, temp, movesAmount);
+    cout << "Moving disk " << totalDisks << " from " << start << " to " << end << endl;
+    movesAmount++;
+    towerHanoi(totalDisks - 1, temp, start, end, movesAmount);
+}
 
 int main() {
     // solve the first 5 cases of the Tower of Hanoi problem
