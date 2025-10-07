@@ -25,23 +25,19 @@ T findMaxRecTail(const T[], const int, int = 0);
  * An integer to signal to the OS the exit code.
 *******************************************************************************/
 
+// Time complexity: n + n + 1 = 2n + 1
+// O(n)
 template <typename T>
 T findMaxRecTail(const T array[], const int size, int i)
 {
     if (size < 0) throw string("size is negative");
 
-    if (size - 1 == i) return array[i];
+    if (size - 1 == i) return array[i]; 
     
-    int max = findMaxRecTail(array, size, i + 1);
+    int max = findMaxRecTail(array, size, i + 1); // n
     
-    if (array[i] > max)
-    {
-        return array[i];
-    }
-    else
-    {
-        return max;
-    }   
+    if (array[i] > max) return array[i]; // 38 and 39 lines n - 1
+    else return max;
 }
 
 int main() {
